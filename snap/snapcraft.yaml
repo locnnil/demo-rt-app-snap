@@ -1,0 +1,37 @@
+name: rt-app
+base: core24
+version: 'demo'
+summary: Real-time demo applications that plays with schedulers
+description: |
+  Some real-time demonstration applications to play with schedulers,
+  locks and thread affinity configuration.
+
+grade: stable
+confinement: strict
+
+parts:
+  cmake:
+    plugin: cmake
+    source: .
+
+plugs:
+  process-control:
+    interface: process-control
+
+apps:
+
+  cfs:
+    command: usr/local/bin/cfs
+
+  edf:
+    command: usr/local/bin/edf
+
+  fifo:
+    command: usr/local/bin/fifo
+
+  lock:
+    command: usr/local/bin/lock
+
+  thread-affinity:
+    command: usr/local/bin/thread-affinity
+
